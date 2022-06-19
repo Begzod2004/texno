@@ -1,0 +1,49 @@
+<!-- <style>
+    .input[type=text], select {
+      width: 150px;
+      height: 30px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 10px;
+    
+    }
+    .input1{
+        text-align: center;
+        width: 70px;
+        height: 30px;
+        border-radius: 30px;
+        color: white;
+        background-color: black;
+    }
+    
+    </style>
+    {% if phone %}
+    
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="pk" value={{phone.id}}>
+        <input type="text" class="input" name="name" placeholder="barnd name1" value={{phone.name}}> <br><br>
+        <input  type="submit" class="input " value="Change">
+    </form>
+    {% else %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" class="input" name="name" placeholder="name "> <br><br>
+        <input type="text" class="input" name="kompany" placeholder="kompany "> <br><br>
+        <input type="text" class="input" name="brand" placeholder="BRAND "> <br><br>
+        <input type="text" class="input" name="price" placeholder="PRICE "> <br><br>
+        <input type="submit" class="input2" value="Create">
+    </form>
+    
+    {% endif %} -->
+    {% if perms.technique.can_add_phone %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Create">
+      </form>
+
+      {% endif %}

@@ -1,12 +1,12 @@
 
 from rest_framework import serializers
-from home.models import *
+from technique.models import *
 
 
-class PhoneSerializer(serializers.ModelSerializer):
+class techniqueSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Phone
+        model = technique
         fields = '__all__'
 
 
@@ -19,10 +19,10 @@ class BrandSerializer(serializers.ModelSerializer):
 
 
 
-class FpsSerializer(serializers.ModelSerializer):
+class sizeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Fps
+        model = size
         fields = '__all__'
 
 class CompanySerializer(serializers.ModelSerializer):

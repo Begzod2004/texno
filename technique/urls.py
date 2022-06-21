@@ -40,9 +40,9 @@ urlpatterns = [
     path('technique/delete/<int:pk>',
      techniqueDeleteView.as_view(), name='technique-delete'),
      
-    # path('register/', user_register_view, name='register'),
-    # path('login/', user_login_view, name='login'),
-    # path('technique-order/<int:pk>', user_login_view, name='technique-order'),
+    path('register/', user_register_view, name='register'),
+    path('login/', user_login_view, name='login'),
+    path('technique-order/<int:pk>', user_login_view, name='technique-order'),
     path('admin/', admin.site.urls),
     path('profile/', profile, name='profile'),
     path('order/', main, name='main'),

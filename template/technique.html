@@ -71,7 +71,7 @@
      
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'index' %}">Home</a>
+        <a class="main_a1" href="{% url 'index' %}"></a>
       </button>
     </div>
     
@@ -100,11 +100,11 @@
               {{item.company}} |
               {{item.brand}} |
               {{item.price}} |</p>
-              {% if perms.home.can_change_technique %}
+              {% if perms..can_change_technique %}
           <a href="{% url 'technique-change' item.id %}">Change</a>
         {% endif %}
   
-        {% if perms.home.can_delete_technique %}
+        {% if perms.technique.can_delete_technique %}
           <a href="{% url 'technique-delete' item.id %}">Delete</a>
         {% endif %}
   

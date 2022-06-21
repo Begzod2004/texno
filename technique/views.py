@@ -294,7 +294,7 @@ class techniqueUpdateView(UpdateView):
 def main(request):
     bks = technique.objects.all()
 
-    context = {'shoes': bks}
+    context = {'technique': bks}
     return render(request, "main.html", context=context)
 
 
@@ -316,41 +316,41 @@ def contact(request):
 
 
 
-# def user_login_view(request):
-#     if request.method == 'GET':
-#         form = UserLoginForm()
-#         return render(request, template_name='user-login.html', context={'form': form})
-#     else:
-#         form = UserLoginForm(request.POST)
-#         if form.is_valid():
-#             username = request.POST['username']
-#             password = request.POST['password']
+def user_login_view(request):
+    if request.method == 'GET':
+        form = UserLoginForm()
+        return render(request, template_name='user-login.html', context={'form': form})
+    else:
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
 
-#             user = authenticate(username=username, password=password)
+            user = authenticate(username=username, password=password)
 
-#             if user:
-#                 login(request=request, user=user)
-#                 return redirect('technique')
-#             else:
-#                 return render(request, template_name='user-login.html', context={'form': form})
+            if user:
+                login(request=request, user=user)
+                return redirect('technique')
+            else:
+                return render(request, template_name='user-login.html', context={'form': form})
 
 
-# def user_register_view(request):
-#     if request.method == 'GET':
-#         form = UserRegisterModelForm()
-#         return render(request, template_name='user-register.html', context={'form': form})
-#     else:
-#         form = UserRegisterModelForm(data=request.POST)
-#         password = request.POST['password']
-#         confirm = request.POST['confirm']
-#         if form.is_valid() and password == confirm:
-#             form.save()
-#             user = form.instance
-#             user.groups.add(Group.objects.get(name='Xaridor'))
-#             user.save()
+def user_register_view(request):
+    if request.method == 'GET':
+        form = UserRegisterModelForm()
+        return render(request, template_name='user-register.html', context={'form': form})
+    else:
+        form = UserRegisterModelForm(data=request.POST)
+        password = request.POST['password']
+        confirm = request.POST['confirm']
+        if form.is_valid() and password == confirm:
+            form.save()
+            user = form.instance
+            user.groups.add(Group.objects.get(name='Xaridor'))
+            user.save()
 
-#             login(request, user)
+            login(request, user)
 
-#             return redirect('technique')
-#         else:
-#             return render(request, template_name='user-register.html', context={'form': form})
+            return redirect('index')
+        else:
+            return render(request, template_name='user-register.html', context={'form': form})

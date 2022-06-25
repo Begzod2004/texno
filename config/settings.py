@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0*@p!(-rt$&tpwy0c@bnc^i0)an-efx$_emcc6wqtn&**y&)#b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -171,7 +171,7 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-SITE_ID = 1
+# SITE_ID = 1
 SITE_ID = 2
 
 # 696667131762-2fk4hvijho4fn6rvq71sncf6p4ua62ve.apps.googleusercontent.com4

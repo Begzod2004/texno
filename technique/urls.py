@@ -5,6 +5,7 @@ from django.urls import path
 from .views import profile
 
 
+
 urlpatterns = [
     path('',indexListView.as_view(), name='index'),
     path('index.html', indexListView.as_view(), name='index'),
@@ -43,7 +44,6 @@ urlpatterns = [
     path('register/', user_register_view, name='register'),
     path('login/', user_login_view, name='login'),
     path('technique-order/<int:pk>', user_login_view, name='technique-order'),
-    path('admin/', admin.site.urls),
     path('profile/', profile, name='profile'),
     path('order/', main, name='main'),
 

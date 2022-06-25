@@ -24,7 +24,7 @@ def order(request):
 
 
 class indexListView(ListView):
-    template_name = 'index.html'
+    template_name = 'main.html'
     context_object_name = 'technique'
     def get_queryset(self):
         url_data = self.request.GET

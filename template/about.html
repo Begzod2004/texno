@@ -18,18 +18,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
 <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.cssss' %}" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<link href="{% static 'css/font-awesome.cssss' %}" rel="stylesheet" type="text/css" media="all" /> 
 <!-- //font-awesome icons -->
 <!-- js -->
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
 <!-- //js -->
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -201,7 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				rerum facilis est et expedita distinctio.</p>
 			<div class="agile_about_grids">
 				<div class="col-md-6 agile_about_grid_right">
-					<img src="images/31.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'images/31.jpg' %}" alt=" " class="img-responsive" />
 				</div>
 				<div class="col-md-6 agile_about_grid_left">
 					<ol>
@@ -227,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Meet Our Amazing Team</h3>
 			<div class="agileits_team_grids">
 				<div class="col-md-3 agileits_team_grid">
-					<img src="images/32.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'images/32.jpg' %}" alt=" " class="img-responsive" />
 					<h4>Martin Paul</h4>
 					<p>Manager</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
@@ -237,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-3 agileits_team_grid">
-					<img src="images/33.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'images/33.jpg' %}" alt=" " class="img-responsive" />
 					<h4>Michael Rick</h4>
 					<p>Supervisor</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
@@ -247,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-3 agileits_team_grid">
-					<img src="images/34.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'images/34.jpg' %}" alt=" " class="img-responsive" />
 					<h4>Thomas Carl</h4>
 					<p>Supervisor</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
@@ -257,7 +257,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-3 agileits_team_grid">
-					<img src="images/35.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'images/35.jpg' %}" alt=" " class="img-responsive" />
 					<h4>Laura Lee</h4>
 					<p>CEO</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
@@ -331,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</article>
 						</div>
 					</div>
-					<script src="js/jquery.wmuSlider.js"></script> 
+					<script src="{% static 'js/jquery.wmuSlider.js' %}"></script> 
 					<script>
 						$('.example1').wmuSlider();         
 					</script> 
@@ -402,7 +402,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
 					<div class="w3_footer_grid_bottom">
 						<h4>100% secure payments</h4>
-						<img src="images/card.png" alt=" " class="img-responsive" />
+						<img src="{% static 'images/card.png' %}" alt=" " class="img-responsive" />
 					</div>
 				</div>
 				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
@@ -426,7 +426,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script>
 $(document).ready(function(){
     $(".dropdown").hover(            
@@ -458,7 +458,7 @@ $(document).ready(function(){
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<script src="js/minicart.js"></script>
+<script src="{% static 'js/minicart.js' %}"></script>
 <script>
 		paypal.minicart.render();
 

@@ -25,7 +25,6 @@ class techniqueForm(forms.ModelForm):
 class UserLoginForm(forms.Form):
     username = forms.CharField(max_length=20)
     password = forms.CharField(max_length=20)
-    age = forms.IntegerField()
 
     class Meta:
         widgets = {

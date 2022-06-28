@@ -313,6 +313,8 @@ def brand(request):
     return render(request, "brand.html")
 def contact(request):
     return render(request, "contact.html")
+def products(request):
+    return render(request, "products.html")
 
 
 
@@ -330,7 +332,7 @@ def user_login_view(request):
 
             if user:
                 login(request=request, user=user)
-                return redirect('technique')
+                return redirect('techniques')
             else:
                 return render(request, template_name='user-login.html', context={'form': form})
 

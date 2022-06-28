@@ -5,6 +5,7 @@ from django.urls import *
 from .views import *
 
 
+
 urlpatterns = [
     path('test-api-view/', test_api_view),
     path('technique-api-view/', techniqueListAPIView.as_view()),

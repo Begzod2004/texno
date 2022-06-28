@@ -16,8 +16,8 @@ def test_api_view(request):
     first_technique = technique.objects.first()
     f_b = {
         'name': first_technique.name,
-        'company': [item.salutation for item in first_technique.company.all()],
-        'price': first_technique.price.name,
+        'Company':first_technique.company.title,
+        'price': first_technique.price,
     }
     return JsonResponse(f_b)
 

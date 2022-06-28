@@ -11,6 +11,7 @@ urlpatterns = [
     path('index.html', indexListView.as_view(), name='index'),
     path('brand.html', brand),
     path('contact.html', contact),
+    path('products.html', products),
     path('about.html', about),
     path('main', main, name='main'),
     path('Brand/', BrandListView.as_view(), name='Brand'),

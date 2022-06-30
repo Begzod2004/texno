@@ -16,9 +16,9 @@ class UserRegisterModelForm(forms.ModelForm):
         }
 
 
-class techniqueForm(forms.ModelForm):
+class TechniqueForm(forms.ModelForm):
     class Meta:
-        model = technique
+        model = Technique
         fields = '__all__'
 
 

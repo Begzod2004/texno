@@ -29,31 +29,60 @@ class Company(models.Model):
     def __str__(self) -> str:
         return f"{self.title}"
 
-class condition(models.Model):
-    condition = models.CharField(max_length=50)
+class Condition(models.Model):
+    Condition = models.CharField(max_length=50)
     def __str__(self) -> str:
-         return f"{self.condition}"
+         return f"{self.Condition}"
 
-class size(models.Model):
-    size = models.CharField(max_length=30)
+class Size(models.Model):
+    Size = models.CharField(max_length=30)
     def __str__(self) -> str:
-         return f"{self.size}"
+         return f"{self.Size}"
+
+# yangi
+class Color(models.Model):
+    Color = models.CharField(max_length=30)
+    def __str__(self) -> str:
+         return f"{self.Color}"
+
+
+# yangi
+class Country(models.Model):
+    Country = models.CharField(max_length=30)
+    def __str__(self) -> str:
+         return f"{self.Country}"
+
+# yangi
+class Features(models.Model):
+    Features = models.CharField(max_length=30)
+    def __str__(self) -> str:
+         return f"{self.Features}"
+
+
+class Material(models.Model):
+    Material = models.CharField(max_length=30)
+    def __str__(self) -> str:
+         return f"{self.Features}"
+
     
 
-class technique(models.Model):
+
+class Technique(models.Model):
     name = models.CharField(max_length=50)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.FloatField()
     abaut = models.CharField(max_length=500)
     img = models.ImageField(upload_to= 'static/images')
-    condition = models.ForeignKey(condition, on_delete=models.CASCADE)
-    color = models.CharField(max_length=30)
-    country = models.CharField(max_length=30)
-    size = models.ForeignKey(size,on_delete=models.CASCADE)
-   
+    condition = models.ForeignKey(Condition, on_delete=models.CASCADE)
+    color = models.ForeignKey(Color,on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    size = models.ForeignKey(Size,on_delete=models.CASCADE)
+    features = models.ForeignKey(Features,on_delete=models.CASCADE)
+    
     def __str__(self) -> str:
         return f"{self.name} {self.company} {self.price} {self.brand} {self.img}  {self.color} "
-   
+
+        
     def save(self):
         return super().save()

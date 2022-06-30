@@ -25,10 +25,10 @@ def order(request):
 
 class indexListView(ListView):
     template_name = 'main.html'
-    context_object_name = 'technique'
+    context_object_name = 'Technique'
     def get_queryset(self):
         url_data = self.request.GET
-        q = technique.objects.all()
+        q = Technique.objects.all()
 
         if 'name' in url_data and url_data['name']:
             q = q.filter(name__icontains=url_data['name'])
@@ -45,18 +45,18 @@ class indexListView(ListView):
             q = q.filter(
                 price=url_data['price'])
 
-        if 'condition' in url_data and url_data['condition']:
+        if 'Condition' in url_data and url_data['Condition']:
             q = q.filter(
-                condition=url_data['condition'])
+                Condition=url_data['Condition'])
 
         if 'color' in url_data and url_data['color']:
             q = q.filter(color__icontains=url_data['color'])
         
         return q
 
-def add_technique(request):
+def add_Technique(request):
     print(request.POST)
-    return render(request, "add-technique.html")
+    return render(request, "add-Technique.html")
 
 
 class BrandListView(ListView):
@@ -97,13 +97,13 @@ class BrandDeleteView(DeleteView):
     success_url = '/Brand'
 
 
-class conditionListView(ListView):
-    template_name = 'condition.html'
-    context_object_name = 'condition'
+class ConditionListView(ListView):
+    template_name = 'Condition.html'
+    context_object_name = 'Condition'
    
     def get_queryset(self):
         url_data = self.request.GET
-        q = condition.objects.all()
+        q = Condition.objects.all()
 
         if 'name' in url_data and url_data['name']:
             q = q.filter(name__icontains=url_data['name'])
@@ -111,37 +111,153 @@ class conditionListView(ListView):
         return q
 
 
-class conditionCreateView(CreateView):
-    queryset = condition.objects.all()
-    template_name = 'condition-add.html'
+class ConditionCreateView(CreateView):
+    queryset = Condition.objects.all()
+    template_name = 'Condition-add.html'
     fields = "__all__"
 
-    success_url = '/condition'
+    success_url = '/Condition'
 
 
-class conditionUpdateView(UpdateView):
-    queryset = condition.objects.all()
-    template_name = 'condition-add.html'
+class ConditionUpdateView(UpdateView):
+    queryset = Condition.objects.all()
+    template_name = 'Condition-add.html'
     fields = "__all__"
-    context_object_name = 'condition'
-    success_url = '/condition'
+    context_object_name = 'Condition'
+    success_url = '/Condition'
 
 
-class conditionDeleteView(DeleteView):
-    queryset = condition.objects.all()
-    template_name = 'condition-delete.html'
+class ConditionDeleteView(DeleteView):
+    queryset = Condition.objects.all()
+    template_name = 'Condition-delete.html'
     fields = "__all__"
 
-    success_url = '/condition'
+    success_url = '/Condition'
+
+
+
+class FeaturesListView(ListView):
+    template_name = 'Features.html'
+    context_object_name = 'Features'
+   
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Features.objects.all()
+
+        if 'Features' in url_data and url_data['Features']:
+            q = q.filter(name__icontains=url_data['Features'])
+
+        return q
+
+
+
+class FeaturesCreateView(CreateView):
+    queryset = Features.objects.all()
+    template_name = 'Features-add.html'
+    fields = "__all__"
+
+    success_url = '/Features'
+
+
+class FeaturesUpdateView(UpdateView):
+    queryset = Features.objects.all()
+    template_name = 'Features-add.html'
+    fields = "__all__"
+    context_object_name = 'Features'
+    success_url = '/Features'
+
+
+class FeaturesDeleteView(DeleteView):
+    queryset = Features.objects.all()
+    template_name = 'Features-delete.html'
+    fields = "__all__"
+
+    success_url = '/Features'
+
+class CountryListView(ListView):
+    template_name = 'Country.html'
+    context_object_name = 'Color'
+   
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Country.objects.all()
+
+        if 'Color' in url_data and url_data['Country']:
+            q = q.filter(name__icontains=url_data['Color'])
+
+        return q
+
+class CountryCreateView(CreateView):
+    queryset = Country.objects.all()
+    template_name = 'Country-add.html'
+    fields = "__all__"
+
+    success_url = '/Country'
+
+
+class CountryUpdateView(UpdateView):
+    queryset = Country.objects.all()
+    template_name = 'Country-add.html'
+    fields = "__all__"
+    context_object_name = 'Country'
+    success_url = '/Country'
+
+
+class CountryDeleteView(DeleteView):
+    queryset = Country.objects.all()
+    template_name = 'Country-delete.html'
+    fields = "__all__"
+
+    success_url = '/Country'
+
+
+class ColorListView(ListView):
+    template_name = 'Color.html'
+    context_object_name = 'Color'
+   
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Condition.objects.all()
+
+        if 'Color' in url_data and url_data['Color']:
+            q = q.filter(name__icontains=url_data['Color'])
+
+        return q
+
+
+class ColorCreateView(CreateView):
+    queryset = Color.objects.all()
+    template_name = 'Color-add.html'
+    fields = "__all__"
+
+    success_url = '/Color'
+
+
+class ColorUpdateView(UpdateView):
+    queryset = Color.objects.all()
+    template_name = 'Color-add.html'
+    fields = "__all__"
+    context_object_name = 'Color'
+    success_url = '/Color'
+
+
+class ColorDeleteView(DeleteView):
+    queryset = Color.objects.all()
+    template_name = 'Color-delete.html'
+    fields = "__all__"
+
+    success_url = '/Color'
+
+
 
     
-class sizeListView(ListView):
-    template_name = 'size.html'
-    context_object_name = 'size'
+class SizeListView(ListView):
+    template_name = 'Size.html'
+    context_object_name = 'Size'
    
     def get_queryset(self):
         url_data = self.request.GET
-        q = size.objects.all()
+        q = Size.objects.all()
 
         if 'name' in url_data and url_data['name']:
             q = q.filter(name__icontains=url_data['name'])
@@ -149,28 +265,28 @@ class sizeListView(ListView):
         return q
 
 
-class sizeCreateView(CreateView):
-    queryset = size.objects.all()
-    template_name = 'size-add.html'
+class SizeCreateView(CreateView):
+    queryset = Size.objects.all()
+    template_name = 'Size-add.html'
     fields = "__all__"
 
-    success_url = '/size'
+    success_url = '/Size'
 
 
-class sizeUpdateView(UpdateView):
-    queryset = size.objects.all()
-    template_name = 'size-add.html'
+class SizeUpdateView(UpdateView):
+    queryset = Size.objects.all()
+    template_name = 'Size-add.html'
     fields = "__all__"
-    context_object_name = 'size'
-    success_url = '/size'
+    context_object_name = 'Size'
+    success_url = '/Size'
 
 
-class sizeDeleteView(DeleteView):
-    queryset = size.objects.all()
-    template_name = 'size-delete.html'
+class SizeDeleteView(DeleteView):
+    queryset = Size.objects.all()
+    template_name = 'Size-delete.html'
     fields = "__all__"
 
-    success_url = '/size'
+    success_url = '/Size'
 
 
 
@@ -212,12 +328,12 @@ class CompanyDeleteView(DeleteView):
     success_url = '/Company'
 
 
-class techniqueListView(ListView):
-    queryset = technique.objects.all()
-    template_name = 'technique.html'
+class TechniqueListView(ListView):
+    queryset = Technique.objects.all()
+    template_name = 'Technique.html'
 
 
-    context_object_name = 'technique'
+    context_object_name = 'Technique'
 
     def render_to_response(self, context, **response_kwargs) -> HttpResponse:
         response = super().render_to_response(context, **response_kwargs)
@@ -232,12 +348,12 @@ class techniqueListView(ListView):
 
     def get_queryset(self):
         url_data = self.request.GET
-        q = technique.objects.all()
+        q = Technique.objects.all()
         
         self.last_user_query = {}
         
         xaridor = Group.objects.get(name='Xaridor')
-        if self.request.user.has_perm('can_view_technique') or xaridor in self.request.user.groups.all():
+        if self.request.user.has_perm('can_view_Technique') or xaridor in self.request.user.groups.all():
 
 
             if 'name' in url_data and url_data['name']:
@@ -256,15 +372,15 @@ class techniqueListView(ListView):
                 q = q.filter(
                     price=url_data['price'])
 
-            if 'condition' in url_data and url_data['condition']:
+            if 'Condition' in url_data and url_data['Condition']:
                 q = q.filter(
-                    condition=url_data['condition'])
+                    Condition=url_data['Condition'])
 
-            if 'country' in url_data and url_data['country']:
-                q = q.filter(color__icontains=url_data['country'])
+            if 'Country' in url_data and url_data['Country']:
+                q = q.filter(color__icontains=url_data['Country'])
             
-            if 'size' in url_data and url_data['size']:
-                q = q.filter(color__icontains=url_data['size'])
+            if 'Size' in url_data and url_data['Size']:
+                q = q.filter(color__icontains=url_data['Size'])
 
             if 'color' in url_data and url_data['color']:
                 q = q.filter(color__icontains=url_data['color'])
@@ -275,37 +391,37 @@ class techniqueListView(ListView):
 
 
 
-class techniqueCreateView(CreateView):
-    queryset = technique.objects.all()
-    template_name = 'technique-add.html'
+class TechniqueCreateView(CreateView):
+    queryset = Technique.objects.all()
+    template_name = 'Technique-add.html'
     fields = "__all__"
 
-    success_url = '/technique'
+    success_url = '/Technique'
 
 
-class techniqueUpdateView(UpdateView):
-    queryset = technique.objects.all()
-    template_name = 'technique-add.html'
+class TechniqueUpdateView(UpdateView):
+    queryset = Technique.objects.all()
+    template_name = 'Technique-add.html'
     fields = "__all__"
 
-    success_url = '/technique'
+    success_url = '/Technique'
 
 
 def main(request):
-    bks = technique.objects.all()
+    bks = Technique.objects.all()
 
-    context = {'technique': bks}
+    context = {'Technique': bks}
     return render(request, "main.html", context=context)
 
 
 
 
-class techniqueDeleteView(DeleteView):
-    queryset = technique.objects.all()
-    template_name = 'technique-delete.html'
+class TechniqueDeleteView(DeleteView):
+    queryset = Technique.objects.all()
+    template_name = 'Technique-delete.html'
     fields = "__all__"
 
-    success_url = '/technique'
+    success_url = '/Technique'
 
 def about(request):
     return render(request, "about.html")
@@ -332,7 +448,7 @@ def user_login_view(request):
 
             if user:
                 login(request=request, user=user)
-                return redirect('techniques')
+                return redirect('Techniques')
             else:
                 return render(request, template_name='user-login.html', context={'form': form})
 

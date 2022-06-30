@@ -42,6 +42,12 @@ urlpatterns = [
     path('Color/delete/<int:pk>',
           ColorDeleteView.as_view(), name='Color-delete') ,
     
+ path('Aksiya/',  AksiyaListView.as_view(), name='Aksiya'),
+    path('Aksiya/add',  AksiyaCreateView.as_view(), name='Aksiya-add'),
+    path('Aksiya/change/<int:pk>',  AksiyaUpdateView.as_view(), name='Aksiya-change'),
+    path('Aksiya/delete/<int:pk>',
+          AksiyaDeleteView.as_view(), name='Aksiya-delete') ,
+    
 
     path('Technique/', TechniqueListView.as_view(), name='Techniques'),
     path('Technique/add', TechniqueCreateView.as_view(), name='Technique-add'),

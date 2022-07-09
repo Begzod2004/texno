@@ -3,10 +3,10 @@ from rest_framework import serializers
 from technique.models import *
 
 
-class techniqueSerializer(serializers.ModelSerializer):
+class TechniqueSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = technique
+        model = Technique
         fields = '__all__'
 
 
@@ -19,10 +19,10 @@ class BrandSerializer(serializers.ModelSerializer):
 
 
 
-class sizeSerializer(serializers.ModelSerializer):
+class SizeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = size
+        model = Size
         fields = '__all__'
 
 class CompanySerializer(serializers.ModelSerializer):

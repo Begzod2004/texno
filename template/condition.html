@@ -68,7 +68,7 @@
   <div class="hello">
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'condition-add' %}">Add</a>
+        <a class="main_a1" href="{% url 'Condition-add' %}">Add</a>
       </button>
     </div>
      
@@ -91,14 +91,14 @@
   <div class="layout_padding gallery_section">
     <div class="container">
       <ul class="myul">
-        {% for item in condition %}
+        {% for item in Condition %}
         <li class="myli">
           <div class="best_shoes">
-            <p class="best_text">{{item.condition}}</p>
+            <p class="best_text">{{item.Condition}}</p>
             <div class="star_text">
               <div class="left_part" >
-                <a class="main_a" href="{% url 'condition-change' item.id %}">Change</a>
-                <a class="main_a" href="{% url 'condition-delete' item.id %}">Delete</a>
+                <a class="main_a" href="{% url 'Condition-change' item.id %}">Change</a>
+                <a class="main_a" href="{% url 'Condition-delete' item.id %}">Delete</a>
               </div>
             </div>
           </div>

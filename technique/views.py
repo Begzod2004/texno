@@ -22,37 +22,14 @@ def order(request):
     return render(request, 'order.html')
 
 
+def index(request):
+    b1 = Technique.objects.all()
+    b2 = Aksiya.objects.all()
 
-class indexListView(ListView):
-    template_name = 'main.html'
-    context_object_name = 'Technique'
-    def get_queryset(self):
-        url_data = self.request.GET
-        q = Technique.objects.all()
+    context = {'Technique': b1, 'Aksiya': b2}
 
-        if 'name' in url_data and url_data['name']:
-            q = q.filter(name__icontains=url_data['name'])
+    return render(request, "main.html", context=context)
 
-        if 'Company' in url_data and url_data['Company']:
-            q = q.filter(
-                company__title__icontains=url_data['Company'])
-
-        if 'Brand' in url_data and url_data['Brand']:
-            q = q.filter(
-                brand__name__icontains=url_data['Brand'])
-
-        if 'price' in url_data and url_data['price']:
-            q = q.filter(
-                price=url_data['price'])
-
-        if 'Condition' in url_data and url_data['Condition']:
-            q = q.filter(
-                Condition=url_data['Condition'])
-
-        if 'color' in url_data and url_data['color']:
-            q = q.filter(color__icontains=url_data['color'])
-        
-        return q
 
 def add_Technique(request):
     print(request.POST)
@@ -176,14 +153,14 @@ class FeaturesDeleteView(DeleteView):
 
 class CountryListView(ListView):
     template_name = 'Country.html'
-    context_object_name = 'Color'
+    context_object_name = 'Country'
    
     def get_queryset(self):
         url_data = self.request.GET
         q = Country.objects.all()
 
-        if 'Color' in url_data and url_data['Country']:
-            q = q.filter(name__icontains=url_data['Color'])
+        if 'Country' in url_data and url_data['Country']:
+            q = q.filter(name__icontains=url_data['Country'])
 
         return q
 
@@ -249,7 +226,82 @@ class ColorDeleteView(DeleteView):
     success_url = '/Color'
 
 
+class FeaturesListView(ListView):
+    template_name = 'Features.html'
+    context_object_features = 'Features'
+   
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Features.objects.all()
 
+        if 'Features' in url_data and url_data['Features']:
+            q = q.filter(features__icontains=url_data['Features'])
+
+        return q
+
+
+class FeaturesCreateView(CreateView):
+    queryset = Features.objects.all()
+    template_name = 'Features-add.html'
+    fields = "__all__"
+
+    success_url = '/Features'
+
+
+class FeaturesUpdateView(UpdateView):
+    queryset = Features.objects.all()
+    template_name = 'Features-add.html'
+    fields = "__all__"
+    context_object_features = 'Features'
+    success_url = '/Features'
+
+
+class FeaturesDeleteView(DeleteView):
+    queryset = Features.objects.all()
+    template_name = 'Features-delete.html'
+    fields = "__all__"
+
+    success_url = '/Features'
+
+
+
+
+class Aksiya_CodeListView(ListView):
+    template_name = 'Aksiya_Code.html'
+    context_object_Aksiya_Code = 'Aksiya_Code'
+   
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Aksiya_Code.objects.all()
+
+        if 'Aksiya_Code' in url_data and url_data['Aksiya_Code']:
+            q = q.filter(Aksiya_Code__icontains=url_data['Aksiya_Code'])
+
+        return q
+
+
+class Aksiya_CodeCreateView(CreateView):
+    queryset = Aksiya_Code.objects.all()
+    template_name = 'Aksiya_Code-add.html'
+    fields = "__all__"
+
+    success_url = '/Aksiya_Code'
+
+
+class Aksiya_CodeUpdateView(UpdateView):
+    queryset = Aksiya_Code.objects.all()
+    template_name = 'Aksiya_Code-add.html'
+    fields = "__all__"
+    context_object_Aksiya_Code = 'Aksiya_Code'
+    success_url = '/Aksiya_Code'
+
+
+class Aksiya_CodeDeleteView(DeleteView):
+    queryset = Aksiya_Code.objects.all()
+    template_name = 'Aksiya_Code-delete.html'
+    fields = "__all__"
+
+    success_url = '/Aksiya_Code'
     
 class SizeListView(ListView):
     template_name = 'Size.html'
@@ -377,16 +429,16 @@ class TechniqueListView(ListView):
                     Condition=url_data['Condition'])
 
             if 'Country' in url_data and url_data['Country']:
-                q = q.filter(color__icontains=url_data['Country'])
+                q = q.filter(Color__icontains=url_data['Country'])
             
             if 'Size' in url_data and url_data['Size']:
-                q = q.filter(color__icontains=url_data['Size'])
+                q = q.filter(Color__icontains=url_data['Size'])
 
-            if 'color' in url_data and url_data['color']:
-                q = q.filter(color__icontains=url_data['color'])
+            if 'Color' in url_data and url_data['Color']:
+                q = q.filter(Color__icontains=url_data['Color'])
                 
             if 'img' in url_data and url_data['img']:
-                q = q.filter(color__icontains=url_data['img'])
+                q = q.filter(Color__icontains=url_data['img'])
             return q
 
 
@@ -407,11 +459,6 @@ class TechniqueUpdateView(UpdateView):
     success_url = '/Technique'
 
 
-def main(request):
-    bks = Technique.objects.all()
-
-    context = {'Technique': bks}
-    return render(request, "main.html", context=context)
 
 
 
@@ -485,16 +532,16 @@ class AksiyaListView(ListView):
                     Condition=url_data['Condition'])
 
             if 'Country' in url_data and url_data['Country']:
-                q = q.filter(color__icontains=url_data['Country'])
+                q = q.filter(Color__icontains=url_data['Country'])
             
             if 'Size' in url_data and url_data['Size']:
-                q = q.filter(color__icontains=url_data['Size'])
+                q = q.filter(Color__icontains=url_data['Size'])
 
-            if 'color' in url_data and url_data['color']:
-                q = q.filter(color__icontains=url_data['color'])
+            if 'Color' in url_data and url_data['Color']:
+                q = q.filter(Color__icontains=url_data['Color'])
                 
             if 'img' in url_data and url_data['img']:
-                q = q.filter(color__icontains=url_data['img'])
+                q = q.filter(Color__icontains=url_data['img'])
             return q
 
 
@@ -515,11 +562,6 @@ class AksiyaUpdateView(UpdateView):
     success_url = '/Aksiya'
 
 
-def main(request):
-    bks = Aksiya.objects.all()
-
-    context = {'Aksiya': bks}
-    return render(request, "main.html", context=context)
 
 
 
@@ -547,7 +589,7 @@ def user_login_view(request):
 
             if user:
                 login(request=request, user=user)
-                return redirect('Techniques')
+                return redirect('Technique')
             else:
                 return render(request, template_name='user-login.html', context={'form': form})
 
@@ -571,3 +613,4 @@ def user_register_view(request):
             return redirect('index')
         else:
             return render(request, template_name='user-register.html', context={'form': form})
+

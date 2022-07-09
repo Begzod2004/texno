@@ -65,7 +65,7 @@
   <div class="hello">
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'technique-add' %}">Add</a>
+        <a class="main_a1" href="{% url 'Aksiya-add' %}">Add</a>
       </button>
     </div>
      
@@ -92,20 +92,21 @@
   <div class="layout_padding gallery_section">
     <div class="container">
       <ul class="myul">
-        {% for item in technique %}
+        {% for item in Aksiya %}
         <li class="myli">
           <div class="best_shoes">
             <p class="best_text">
               {{item.name}} |
               {{item.company}} |
               {{item.brand}} |
-              {{item.price}} |</p>
-              {% if perms..can_change_technique %}
-          <a href="{% url 'technique-change' item.id %}">Change</a>
+              {{item.new_price}} |
+              {{item.old_price}} |</p>
+              {% if perms..can_change_Aksiya %}
+          <a href="{% url 'Aksiya-change' item.id %}">Change</a>
         {% endif %}
   
-        {% if perms.technique.can_delete_technique %}
-          <a href="{% url 'technique-delete' item.id %}">Delete</a>
+        {% if perms.Aksiya.can_delete_Aksiya %}
+          <a href="{% url 'Aksiya-delete' item.id %}">Delete</a>
         {% endif %}
   
         {% if 'Xaridor' in user.groups.all.0.name %}

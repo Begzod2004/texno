@@ -18,7 +18,7 @@
       height: 50px;
       color: #ffffff;
       background-color:rgb(205, 9, 9);
-      font-size: 16pt;
+      font-Size: 16pt;
       margin-top: 35px;
   
     }
@@ -68,7 +68,7 @@
   <div class="hello">
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'size-add' %}">Add</a>
+        <a class="main_a1" href="{% url 'Size-add' %}">Add</a>
       </button>
     </div>
      
@@ -91,14 +91,14 @@
   <div class="layout_padding gallery_section">
     <div class="container">
       <ul class="myul">
-        {% for item in size %}
+        {% for item in Size %}
         <li class="myli">
           <div class="best_shoes">
-            <p class="best_text">{{item.name}}</p>
+            <p class="best_text">{{item.Size}}</p>
             <div class="star_text">
               <div class="left_part" >
-                <a class="main_a" href="{% url 'size-change' item.id %}">Change</a>
-                <a class="main_a" href="{% url 'size-delete' item.id %}">Delete</a>
+                <a class="main_a" href="{% url 'Size-change' item.id %}">Change</a>
+                <a class="main_a" href="{% url 'Size-delete' item.id %}">Delete</a>
               </div>
             </div>
           </div>

@@ -68,14 +68,14 @@
   <div class="hello">
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'Color-add' %}">Add</a>
+        <a class="main_a1" href="{% url 'Country-add' %}">Add</a>
       </button>
     </div>
      
   
     <div class="read-more">
       <button class="buy_text11">
-        <a class="main_a1" href="{% url 'main' %}">Home</a>
+        <a class="main_a1" href="{% url 'index' %}">Home</a>
       </button>
     </div>
     
@@ -91,14 +91,14 @@
   <div class="layout_padding gallery_section">
     <div class="container">
       <ul class="myul">
-        {% for item in Color %}
+        {% for item in Country %}
         <li class="myli">
           <div class="best_shoes">
-            <p class="best_text">{{item.Color}}</p>
+            <p class="best_text">{{item.Country}}</p>
             <div class="star_text">
               <div class="left_part" >
-                <a class="main_a" href="{% url 'Color-change' item.id %}">Change</a>
-                <a class="main_a" href="{% url 'Color-delete' item.id %}">Delete</a>
+                <a class="main_a" href="{% url 'Country-change' item.id %}">Change</a>
+                <a class="main_a" href="{% url 'Country-delete' item.id %}">Delete</a>
               </div>
             </div>
           </div>

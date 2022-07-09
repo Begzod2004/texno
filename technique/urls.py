@@ -7,13 +7,12 @@ from .views import profile
 
 
 urlpatterns = [
-    path('',indexListView.as_view(), name='index'),
-    path('index.html', indexListView.as_view(), name='index'),
+    path('',index, name='index'),
+    path('index.html', index, name='index'),
     path('brand.html', brand),
     path('contact.html', contact),
     path('products.html', products),
     path('about.html', about),
-    path('main', main, name='main'),
     path('Brand/', BrandListView.as_view(), name='Brand'),
     path('Brand/add', BrandCreateView.as_view(), name='Brand-add'),
     path('Brand/change/<int:pk>', BrandUpdateView.as_view(), name='Brand-change'),
@@ -41,15 +40,39 @@ urlpatterns = [
     path('Color/change/<int:pk>',  ColorUpdateView.as_view(), name='Color-change'),
     path('Color/delete/<int:pk>',
           ColorDeleteView.as_view(), name='Color-delete') ,
+
+
+
+    path('Country/',  CountryListView.as_view(), name='Country'),
+    path('Country/add',  CountryCreateView.as_view(), name='Country-add'),
+    path('Country/change/<int:pk>',  CountryUpdateView.as_view(), name='Country-change'),
+    path('Country/delete/<int:pk>',
+          CountryDeleteView.as_view(), name='Country-delete') ,
+          
+
+    path('Aksiya_Code/',  Aksiya_CodeListView.as_view(), name='Aksiya_Code'),
+    path('Aksiya_Code/add',  Aksiya_CodeCreateView.as_view(), name='Aksiya_Code-add'),
+    path('Aksiya_Code/change/<int:pk>',  Aksiya_CodeUpdateView.as_view(), name='Aksiya_Code-change'),
+    path('Aksiya_Code/delete/<int:pk>',
+          Aksiya_CodeDeleteView.as_view(), name='Aksiya_Code-delete') ,
+          
+
+    path('Features/',  FeaturesListView.as_view(), name='Features'),
+    path('Features/add',  FeaturesCreateView.as_view(), name='Features-add'),
+    path('Features/change/<int:pk>',  FeaturesUpdateView.as_view(), name='Features-change'),
+    path('Features/delete/<int:pk>',
+          FeaturesDeleteView.as_view(), name='Features-delete') ,
+
+          
     
- path('Aksiya/',  AksiyaListView.as_view(), name='Aksiya'),
+    path('Aksiya/',  AksiyaListView.as_view(), name='Aksiya'),
     path('Aksiya/add',  AksiyaCreateView.as_view(), name='Aksiya-add'),
     path('Aksiya/change/<int:pk>',  AksiyaUpdateView.as_view(), name='Aksiya-change'),
     path('Aksiya/delete/<int:pk>',
           AksiyaDeleteView.as_view(), name='Aksiya-delete') ,
     
 
-    path('Technique/', TechniqueListView.as_view(), name='Techniques'),
+    path('Technique/', TechniqueListView.as_view(), name='Technique'),
     path('Technique/add', TechniqueCreateView.as_view(), name='Technique-add'),
     path('Technique/change/<int:pk>',
          TechniqueUpdateView.as_view(), name='Technique-change'),
@@ -60,7 +83,6 @@ urlpatterns = [
     path('login/', user_login_view, name='login'),
     path('Technique-order/<int:pk>', user_login_view, name='Technique-order'),
     path('profile/', profile, name='profile'),
-    path('order/', main, name='main'),
 
 
     ] 

@@ -13,62 +13,62 @@ from .serializers import *
 
 
 def test_api_view(request):
-    first_technique = technique.objects.first()
+    first_Technique = Technique.objects.first()
     f_b = {
-        'name': first_technique.name,
-        'Company':first_technique.company.title,
-        'price': first_technique.price,
+        'name': first_Technique.name,
+        'Company':first_Technique.company.title,
+        'price': first_Technique.price,
     }
     return JsonResponse(f_b)
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
-def technique_api_view(request, pk=0):
+def Technique_api_view(request, pk=0):
     if request.method == 'GET':
         if pk == 0:
-            return Response(data=techniqueSerializer(instance=technique.objects.all(), many=True).data, status=200)
+            return Response(data=TechniqueSerializer(instance=Technique.objects.all(), many=True).data, status=200)
         else:
-            the_technique = get_object_or_404(technique, pk=pk)
-            return Response(data=techniqueSerializer(instance=the_technique).data, status=200)
+            the_Technique = get_object_or_404(Technique, pk=pk)
+            return Response(data=TechniqueSerializer(instance=the_Technique).data, status=200)
     
     elif request.method == "POST":
-        sb = techniqueSerializer(data=request.data)
+        sb = TechniqueSerializer(data=request.data)
         if sb.is_valid():
             sb.save()
             return Response({'id': sb.instance.id}, status=201)
         else:
             return Response(sb.error_messages, status=406)
     elif request.method == 'PUT':
-        the_technique = get_object_or_404(technique, pk=pk)
-        sb = techniqueSerializer(data=request.data, instance=the_technique)
+        the_Technique = get_object_or_404(Technique, pk=pk)
+        sb = TechniqueSerializer(data=request.data, instance=the_Technique)
         if sb.is_valid():
             sb.save()
             return Response('Updated', status=200)
         else:
             return Response(sb.error_messages, status=406)
     else:
-        the_technique = get_object_or_404(technique, pk=pk)
-        the_technique.delete()
+        the_Technique = get_object_or_404(Technique, pk=pk)
+        the_Technique.delete()
         return Response('Deleted', status=200)
 
 
-class techniqueListAPIView(ListAPIView):
-    queryset = technique.objects.all()
-    serializer_class = techniqueSerializer
+class TechniqueListAPIView(ListAPIView):
+    queryset = Technique.objects.all()
+    serializer_class = TechniqueSerializer
 
 
-class techniqueCreateAPIView(CreateAPIView):
-    queryset = technique.objects.all()
-    serializer_class = techniqueSerializer
+class TechniqueCreateAPIView(CreateAPIView):
+    queryset = Technique.objects.all()
+    serializer_class = TechniqueSerializer
 
 
-class techniqueUpdateAPIView(UpdateAPIView):
-    queryset = technique.objects.all()
-    serializer_class = techniqueSerializer
+class TechniqueUpdateAPIView(UpdateAPIView):
+    queryset = Technique.objects.all()
+    serializer_class = TechniqueSerializer
 
 
-class techniqueDestroyAPIView(DestroyAPIView):
-    queryset = technique.objects.all()
-    serializer_class = techniqueSerializer
+class TechniqueDestroyAPIView(DestroyAPIView):
+    queryset = Technique.objects.all()
+    serializer_class = TechniqueSerializer
 
 
 
@@ -126,53 +126,53 @@ class BrandDestroyAPIView(DestroyAPIView):
 
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
-def size_api_view(request, pk=0):
+def Size_api_view(request, pk=0):
     if request.method == 'GET':
         if pk == 0:
-            return Response(data=sizeSerializer(instance=size.objects.all(), many=True).data, status=200)
+            return Response(data=SizeSerializer(instance=Size.objects.all(), many=True).data, status=200)
         else:
-            the_size = get_object_or_404(size, pk=pk)
-            return Response(data=sizeSerializer(instance=the_size).data, status=200)
+            the_Size = get_object_or_404(Size, pk=pk)
+            return Response(data=SizeSerializer(instance=the_Size).data, status=200)
     
     elif request.method == "POST":
-        sb = sizeSerializer(data=request.data)
+        sb = SizeSerializer(data=request.data)
         if sb.is_valid():
             sb.save()
             return Response({'id': sb.instance.id}, status=201)
         else:
             return Response(sb.error_messages, status=406)
     elif request.method == 'PUT':
-        the_size = get_object_or_404(size, pk=pk)
-        sb = sizeSerializer(data=request.data, instance=the_size)
+        the_Size = get_object_or_404(Size, pk=pk)
+        sb = SizeSerializer(data=request.data, instance=the_Size)
         if sb.is_valid():
             sb.save()
             return Response('Updated', status=200)
         else:
             return Response(sb.error_messages, status=406)
     else:
-        the_size = get_object_or_404(size, pk=pk)
-        the_size.delete()
+        the_Size = get_object_or_404(Size, pk=pk)
+        the_Size.delete()
         return Response('Deleted', status=200)
 
 
-class sizeListAPIView(ListAPIView):
-    queryset = size.objects.all()
-    serializer_class = sizeSerializer
+class SizeListAPIView(ListAPIView):
+    queryset = Size.objects.all()
+    serializer_class = SizeSerializer
 
 
-class sizeCreateAPIView(CreateAPIView):
-    queryset = size.objects.all()
-    serializer_class = sizeSerializer
+class SizeCreateAPIView(CreateAPIView):
+    queryset = Size.objects.all()
+    serializer_class = SizeSerializer
 
 
-class sizeUpdateAPIView(UpdateAPIView):
-    queryset = size.objects.all()
-    serializer_class = sizeSerializer
+class SizeUpdateAPIView(UpdateAPIView):
+    queryset = Size.objects.all()
+    serializer_class = SizeSerializer
 
 
-class sizeDestroyAPIView(DestroyAPIView):
-    queryset = size.objects.all()
-    serializer_class = sizeSerializer
+class SizeDestroyAPIView(DestroyAPIView):
+    queryset = Size.objects.all()
+    serializer_class = SizeSerializer
 
 
 

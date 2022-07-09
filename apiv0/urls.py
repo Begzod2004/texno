@@ -8,12 +8,12 @@ from .views import *
 
 urlpatterns = [
     path('test-api-view/', test_api_view),
-    path('technique-api-view/', techniqueListAPIView.as_view()),
-    path('technique-api-view/create', techniqueCreateAPIView.as_view()),
-    path('technique-api-view/update/<int:pk>', techniqueUpdateAPIView.as_view()),
-    path('technique-api-view/delete/<int:pk>', techniqueDestroyAPIView.as_view()),
+    path('Technique-api-view/', TechniqueListAPIView.as_view()),
+    path('Technique-api-view/create', TechniqueCreateAPIView.as_view()),
+    path('Technique-api-view/update/<int:pk>', TechniqueUpdateAPIView.as_view()),
+    path('Technique-api-view/delete/<int:pk>', TechniqueDestroyAPIView.as_view()),
     
-    path('technique-api-view/<int:pk>/', technique_api_view),path('test-api-view/', test_api_view),
+    path('Technique-api-view/<int:pk>/', Technique_api_view),path('test-api-view/', test_api_view),
     
     path('Brand-api-view/', BrandListAPIView.as_view()),
     path('Brand-api-view/create', BrandCreateAPIView.as_view()),
@@ -22,12 +22,12 @@ urlpatterns = [
     path('Brand-api-view/<int:pk>/', Brand_api_view),
     
     
-    path('size-api-view/', sizeListAPIView.as_view()),
-    path('size-api-view/create', sizeCreateAPIView.as_view()),
-    path('size-api-view/update/<int:pk>', sizeUpdateAPIView.as_view()),
-    path('size-api-view/delete/<int:pk>', sizeDestroyAPIView.as_view()),
+    path('Size-api-view/', SizeListAPIView.as_view()),
+    path('Size-api-view/create', SizeCreateAPIView.as_view()),
+    path('Size-api-view/update/<int:pk>', SizeUpdateAPIView.as_view()),
+    path('Size-api-view/delete/<int:pk>', SizeDestroyAPIView.as_view()),
     
-    path('size-api-view/<int:pk>/', size_api_view),
+    path('Size-api-view/<int:pk>/', Size_api_view),
     
 
     path('Company-api-view/', CompanyListAPIView.as_view()),

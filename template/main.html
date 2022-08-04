@@ -7,110 +7,94 @@
         text-decoration-color: red;
     }
 </style>
-
 {% block content %}
-<div class="top-brands">
+<div class="pedding">
     <div class="container">
-        <h3> Offers</h3>
-        <div class="agile_top_brands_grids">
-            {% for item in Technique %} 
-            <div class="col-md-3 top_brand_left">
-                <div class="hover14 column">
-                    <div class="agile_top_brand_left_grid">
-                        
-                        <div class="tag"><img src="{{item.img}}" alt=" " class="img-responsive" /></div>
-                        <div class="agile_top_brand_left_grid1">
-                            <figure>
-                                <div class="snipcart-item block" >
-                                    <div class="snipcart-thumb">
-                                        <p> Name:  {{item.name}}</p>
-                                        <p> Size:  {{item.size}}</p>
-                                        <p> Color:  {{item.color}}</p>
-                                        <p> COMPANY:  {{item.company}}</p>
-                                        <h4>${{item.price}}</h4>
-                                    </div>
-                                    <div class="snipcart-details top_brand_home_details">
-                                        <form action="checkout.html" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="0" />
-                                                <input type="hidden" name="business" value=" " />
-                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-                                                <input type="hidden" name="amount" value="{{item.price}}" />
-                                                <input type="hidden" name="discount_amount" value="0" />
-                                                <input type="hidden" name="currency_code" value="USD" />
-                                                <input type="hidden" name="return" value=" " />
-                                                <input type="hidden" name="cancel_return" value=" " />
-                                                <input type="submit" name="submit" value="Add to cart" class="button" />
-                                            </fieldset>
-                                                
-                                        </form>
-                                
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        
-                        
+        <ul>
+            {% for item in Technique %}
+              <li class="myli" style="width: 200px;">
+                <div clawss="best_shoes">
+                  <div class="shoes_icon"><img src="{{item.img}}" ></div>
+                  <div class="star_text">
+                    <div class="left_part" >
+                        <p> Name:  {{item.name}}</p>
+                        <p> Size:  {{item.size}}</p>
+                        <p> Color:  {{item.color}}</p>
+                        <p> COMPANY:  {{item.company}}</p>
                     </div>
-                </div>
- 
- 
- 
- 
- 
-            </div>
-            {% endfor %}
+                    <div class="right_part">
+                      <div class="shoes_price">$ <span style="color: #ff4e5b;">{{item.price}}</span></div>
+                    </div>
+                  </div>
+                  <div class="snipcart-details top_brand_home_details">
+                    <form action="checkout.html" method="post">
+                        <fieldset>
+                            <input type="hidden" name="cmd" value="_cart" />
+                            <input type="hidden" name="add" value="1" />
+                            <input type="hidden" name="business" value=" " />
+                            <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                            <input type="hidden" name="amount" value="7.99" />
+                            <input type="hidden" name="discount_amount" value="1.00" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="return" value=" " />
+                            <input type="hidden" name="cancel_return" value=" " />
+                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                        </fieldset>
+                            
+                    </form>
             
-             
-                        
-                        
-            {% for item in Aksiya %}                
-            <div class="col-md-3 top_brand_left">
-                <div class="hover14 column">
-                    <div class="agile_top_brand_left_grid">
-                        
-                        <div class="tag"><img src="{{item.img}}" alt=" " class="img-responsive" /></div>
-                        <div class="agile_top_brand_left_grid1">
-                            <figure>
-                                <div class="snipcart-item block" >
-                                    <div class="snipcart-thumb">
-                                        <p> Name:  {{item.name}}</p>
-                                        <p> Size:  {{item.size}}</p>
-                                        <p> Color:  {{item.color}}</p>
-                                        <p> COMPANY:  {{item.company}}</p>
-                                        <h4 class="hello21" >${{item.old_price}}</h4>
-                                        <h4>${{item.new_price}}</h4>
-                                    </div>
-                                    <div class="snipcart-details top_brand_home_details">
-                                        <form action="checkout.html" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="business" value=" " />
-                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-                                                <input type="hidden" name="amount" value="7.99" />
-                                                <input type="hidden" name="discount_amount" value="1.00" />
-                                                <input type="hidden" name="currency_code" value="USD" />
-                                                <input type="hidden" name="return" value=" " />
-                                                <input type="hidden" name="cancel_return" value=" " />
-                                                <input type="submit" name="submit" value="Add to cart" class="button" />
-                                            </fieldset>
-                                                
-                                        </form>
-                                
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        
-                        
-                    </div>
                 </div>
-            </div>
-            {% endfor %}
-            <div class="clearfix"> </div>
-        </div>
+                </div>
+                
+              </li>
+              {% endfor %}
+        </ul>
     </div>
 </div>
+<div>
+    <div class="container">
+        <ul>
+            {% for item in Aksiya %}
+              <li class="myli" style="width: 200px;">
+                <div class="best_shoes">
+                  <div class="shoes_icon"><img src="{{item.img}}" ></div>
+                  <div class="star_text">
+                    <div class="left_part" >
+                        <p> Name:  {{item.name}}</p>
+                        <p> Size:  {{item.size}}</p>
+                        <p> Color:  {{item.color}}</p>
+                        <p> COMPANY:  {{item.company}}</p>
+                    </div>
+                    <div class="right_part">
+                      <div class="shoes_price">$ <span style="text-decoration-line: line-through;
+                        text-decoration-color: red;">{{item.old_price}}</span></div>
+                      <div class="shoes_price">$ <span style="color: black;">{{item.new_price}}</span></div>
+                    </div>
+                  </div>
+                  <div class="snipcart-details top_brand_home_details">
+                    <form action="checkout.html" method="post">
+                        <fieldset>
+                            <input type="hidden" name="cmd" value="_cart" />
+                            <input type="hidden" name="add" value="1" />
+                            <input type="hidden" name="business" value=" " />
+                            <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                            <input type="hidden" name="amount" value="7.99" />
+                            <input type="hidden" name="discount_amount" value="1.00" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="return" value=" " />
+                            <input type="hidden" name="cancel_return" value=" " />
+                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                        </fieldset>
+                            
+                    </form>
+            
+                </div>
+                </div>
+                
+              </li>
+              {% endfor %}
+        </ul>
+    </div>  
+</div>
+
 {% endblock %}

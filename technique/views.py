@@ -1,7 +1,7 @@
 from unicodedata import *
 from django.http import HttpResponse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import  redirect, render
 from .models import *
 from .forms import *
 from django.db.models import *
@@ -12,12 +12,15 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-
 @login_required
 def profile(request):
     return render(request, 'profile.html')
 
-    
+
+def registeratsiya(request):
+    return render(request, 'registeratsiya.html')
+        
+        
 def order(request):
     return render(request, 'order.html')
 
@@ -194,12 +197,14 @@ class ColorListView(ListView):
    
     def get_queryset(self):
         url_data = self.request.GET
-        q = Condition.objects.all()
+        q = Color.objects.all()
 
         if 'Color' in url_data and url_data['Color']:
-            q = q.filter(name__icontains=url_data['Color'])
+            q = q.filter(Color__icontains=url_data['Color'])
 
         return q
+
+
 
 
 class ColorCreateView(CreateView):
@@ -235,7 +240,7 @@ class FeaturesListView(ListView):
         q = Features.objects.all()
 
         if 'Features' in url_data and url_data['Features']:
-            q = q.filter(features__icontains=url_data['Features'])
+            q = q.filter(Features__icontains=url_data['Features'])
 
         return q
 
@@ -355,6 +360,18 @@ class CompanyListView(ListView):
             q = q.filter(title__icontains=url_data['title'])
         return q
 
+class CompanyListView(ListView):
+    queryset = Company.objects.all()
+    template_name = 'Company.html'
+    context_object_name = 'Company'
+    
+    def get_queryset(self):
+        url_data = self.request.GET
+        q = Company.objects.all()
+
+        if 'title' in url_data and url_data['title']:
+            q = q.filter(title__icontains=url_data['title'])
+        return q
 
 class CompanyCreateView(CreateView):
     queryset = Company.objects.all()
@@ -379,6 +396,19 @@ class CompanyDeleteView(DeleteView):
 
     success_url = '/Company'
 
+# class TechniqueListView(ListView):
+#     queryset = Technique.objects.all()
+#     template_name = 'Technique.html'
+#     context_object_name = 'Technique'
+    
+#     def get_queryset(self):
+#         url_data = self.request.GET
+#         q = Technique.objects.all()
+
+#         if 'name' in url_data and url_data['name']:
+#             q = q.filter(name__icontains=url_data['name'])
+#         return q
+
 
 class TechniqueListView(ListView):
     queryset = Technique.objects.all()
@@ -386,17 +416,6 @@ class TechniqueListView(ListView):
 
 
     context_object_name = 'Technique'
-
-    def render_to_response(self, context, **response_kwargs) -> HttpResponse:
-        response = super().render_to_response(context, **response_kwargs)
-
-        for key, val in self.last_user_query.items():
-            response.set_cookie(key,val)
-        return response
-
- 
-    
-
 
     def get_queryset(self):
         url_data = self.request.GET
@@ -406,8 +425,6 @@ class TechniqueListView(ListView):
         
         xaridor = Group.objects.get(name='Xaridor')
         if self.request.user.has_perm('can_view_Technique') or xaridor in self.request.user.groups.all():
-
-
             if 'name' in url_data and url_data['name']:
                 q = q.filter(name__icontains=url_data['name'])
                 self.last_user_query['name'] = url_data['name']
@@ -443,6 +460,8 @@ class TechniqueListView(ListView):
 
 
 
+
+
 class TechniqueCreateView(CreateView):
     queryset = Technique.objects.all()
     template_name = 'Technique-add.html'
@@ -459,10 +478,6 @@ class TechniqueUpdateView(UpdateView):
     success_url = '/Technique'
 
 
-
-
-
-
 class TechniqueDeleteView(DeleteView):
     queryset = Technique.objects.all()
     template_name = 'Technique-delete.html'
@@ -472,15 +487,19 @@ class TechniqueDeleteView(DeleteView):
 
 def about(request):
     return render(request, "about.html")
+def events(request):
+    return render(request, "events.html")    
 def brand(request):
     return render(request, "brand.html")
 def contact(request):
-    return render(request, "contact.html")
+    return render(request, "contact.html")    
 def products(request):
     return render(request, "products.html")
+def checkout(request):
+    return render(request, "checkout.html")
 
-
-
+def services(request):
+    return render(request, "services.html")
 
 
 class AksiyaListView(ListView):
@@ -496,9 +515,6 @@ class AksiyaListView(ListView):
         for key, val in self.last_user_query.items():
             response.set_cookie(key,val)
         return response
-
- 
-    
 
 
     def get_queryset(self):
@@ -545,7 +561,6 @@ class AksiyaListView(ListView):
             return q
 
 
-
 class AksiyaCreateView(CreateView):
     queryset = Aksiya.objects.all()
     template_name = 'Aksiya-add.html'
@@ -562,17 +577,12 @@ class AksiyaUpdateView(UpdateView):
     success_url = '/Aksiya'
 
 
-
-
-
-
 class AksiyaDeleteView(DeleteView):
     queryset = Aksiya.objects.all()
     template_name = 'Aksiya-delete.html'
     fields = "__all__"
 
     success_url = '/Aksiya'
-
 
 
 def user_login_view(request):
@@ -610,7 +620,7 @@ def user_register_view(request):
 
             login(request, user)
 
-            return redirect('index')
+            return redirect('Technique')
         else:
             return render(request, template_name='user-register.html', context={'form': form})
 

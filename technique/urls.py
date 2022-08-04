@@ -8,11 +8,14 @@ from .views import profile
 
 urlpatterns = [
     path('',index, name='index'),
-    path('index.html', index, name='index'),
-    path('brand.html', brand),
-    path('contact.html', contact),
-    path('products.html', products),
-    path('about.html', about),
+    path('index', index, name='index'),
+    path('brand', brand, name='brand'),
+    path('contact', contact, name='contact'),
+    path('events', events, name='events'),
+    path('services', services, name='services'),
+    path('products', products, name='products'),
+    path('checkout', checkout, name='checkout'),
+    path('about', about, name='about'),
     path('Brand/', BrandListView.as_view(), name='Brand'),
     path('Brand/add', BrandCreateView.as_view(), name='Brand-add'),
     path('Brand/change/<int:pk>', BrandUpdateView.as_view(), name='Brand-change'),
@@ -83,6 +86,8 @@ urlpatterns = [
     path('login/', user_login_view, name='login'),
     path('Technique-order/<int:pk>', user_login_view, name='Technique-order'),
     path('profile/', profile, name='profile'),
+    path('registeratsiya/', profile, name='registeratsiya'),
+    
 
 
     ] 

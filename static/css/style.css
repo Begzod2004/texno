@@ -12,6 +12,7 @@ html, body{
 ul li,ol li{
 	font-size:14px;
 }
+
 p{
 	margin:0;
 }
@@ -219,6 +220,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .sub{
     float:left;
 }
+top_brand_left
 .sub i {
     color: #84C639;
     font-size: 1em;
@@ -3231,7 +3233,7 @@ input.checkbox:checked:after {
 	.top_brand_left {
 		padding: 0 1em;
 		float: left;
-		width: 50%;
+		width: 600px;
 	}
 	.hover14.column {
 		width: 75%;

@@ -22,10 +22,10 @@ class TechniqueForm(forms.ModelForm):
         fields = '__all__'
 
 
-class AksiyaForm(forms.ModelForm):
-    class Meta:
-        model = Aksiya
-        fields = '__all__'
+# class AksiyaForm(forms.ModelForm):
+#     class Meta:
+#         model = Aksiya
+#         fields = '__all__'
 
 
 class UserLoginForm(forms.Form):

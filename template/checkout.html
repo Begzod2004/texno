@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -92,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="products-breadcrumb">
 		<div class="container">
 			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
+				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
 				<li>Checkout</li>
 			</ul>
 		</div>
@@ -232,9 +231,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 						</td>
-						<td class="invert">Pepsi Soft Drink (2 Ltr)</td>
+						<td class="invert">Muzlatgich</td>
 						
-						<td class="invert">$15.00</td>
+						<td class="invert">$300.00</td>
 						<td class="invert">
 							<div class="rem">
 								<div class="close3"> </div>
@@ -519,8 +518,8 @@ $(document).ready(function(){
 				total += items[i].get('quantity');
 			}
 
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+			if (total < 1) {
+				alert('The minimum order quantity is 1. Please add more to your shopping cart before checking out');
 				evt.preventDefault();
 			}
 		});

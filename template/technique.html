@@ -101,16 +101,15 @@
               {{item.brand}} |
               {{item.price}} |</p>
               {% if perms..can_change_Technique %}
-          <a href="{% url 'Technique-change' item.id %}">Change</a>
-        {% endif %}
-  
-        {% if perms.Technique.can_delete_Technique %}
-          <a href="{% url 'Technique-delete' item.id %}">Delete</a>
-        {% endif %}
-  
-        {% if 'Xaridor' in user.groups.all.0.name %}
-          <a href="{% url 'index'  %}">Order</a>
-        {% endif %}
+                <a href="{% url 'Technique-change' item.id %}">Change</a>
+              {% endif %}
+              {% if perms.Technique.can_delete_Technique %}
+                <a href="{% url 'Technique-delete' item.id %}">Delete</a>
+              {% endif %}
+
+              {% if 'Xaridor' in user.groups.all.0.name %}
+                <a href="{% url 'index'  %}">Order</a>
+              {% endif %}
           </div>
         </li>
         {% endfor %}

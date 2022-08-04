@@ -21,12 +21,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'oauth2_provider',
     'technique',
     'rest_framework',
     'apiv0',
@@ -35,7 +37,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +49,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    
 ]
     
 
@@ -144,30 +145,15 @@ REST_FRAMEWORK = {
     )
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_table_name',
-    }
-}
 
-SITE_ID = 5
+SITE_ID = 1
+
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-
-AUTHENTICATION_BACKENDS = [
-    
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
-]
-
-
+ACCOUNT_EMAIL_VERIFICATION = None
 
 # 632924453824-knu3f1895r74lbd9ovbijbivcqc917ad.apps.googleusercontent.com
 # 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
@@ -184,4 +170,4 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
+SOCIALACCOUNT_ADAPTER = 'apiv0.adapter.MySocialAccountAdapter'

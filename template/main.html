@@ -17,30 +17,33 @@
                   <div class="shoes_icon"><img src="{{item.img}}" ></div>
                   <div class="star_text">
                     <div class="left_part" >
+                      <a href="{% url 'TechniqueDetailView' item.pk %}" >{{item.name}}</a>
                         <p> Name:  {{item.name}}</p>
                         <p> Size:  {{item.size}}</p>
                         <p> Color:  {{item.color}}</p>
                         <p> COMPANY:  {{item.company}}</p>
+                       
                     </div>
                     <div class="right_part">
                       <div class="shoes_price">$ <span style="color: #ff4e5b;">{{item.price}}</span></div>
                     </div>
                   </div>
                   <div class="snipcart-details top_brand_home_details">
-                    <form action="checkout.html" method="post">
+                    <form action="checkout" method="post">
                         <fieldset>
                             <input type="hidden" name="cmd" value="_cart" />
                             <input type="hidden" name="add" value="1" />
-                            <input type="hidden" name="business" value=" " />
-                            <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                            <input type="hidden" name="business" value={{item.name}} />
+                            <input type="hidden" name="item_name" value={{item.name}} />
                             <input type="hidden" name="amount" value="7.99" />
-                            <input type="hidden" name="discount_amount" value="1.00" />
+                            <input type="hidden" name="discount_amount" value={{item.price}} />
                             <input type="hidden" name="currency_code" value="USD" />
                             <input type="hidden" name="return" value=" " />
                             <input type="hidden" name="cancel_return" value=" " />
                             <input type="submit" name="submit" value="Add to cart" class="button" />
+
                         </fieldset>
-                            
+     
                     </form>
             
                 </div>
@@ -72,19 +75,21 @@
                     </div>
                   </div>
                   <div class="snipcart-details top_brand_home_details">
-                    <form action="checkout.html" method="post">
+                    <form action="checkout" method="post">
                         <fieldset>
                             <input type="hidden" name="cmd" value="_cart" />
                             <input type="hidden" name="add" value="1" />
                             <input type="hidden" name="business" value=" " />
-                            <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-                            <input type="hidden" name="amount" value="7.99" />
+                            <input type="hidden" name="{{item.name}}" value={{item.name}} />
+                            <input type="hidden" name="amount" value={{item.old_price}} />
                             <input type="hidden" name="discount_amount" value="1.00" />
                             <input type="hidden" name="currency_code" value="USD" />
-                            <input type="hidden" name="return" value=" " />
+                            <input type="hidden" name="return" value={{item.new_price}} />
                             <input type="hidden" name="cancel_return" value=" " />
-                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                            <a href="{% url 'product' %}" value="Add to cart" class="button">
+
                         </fieldset>
+                        
                             
                     </form>
             

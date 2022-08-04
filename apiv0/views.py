@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 import json
@@ -230,4 +227,55 @@ class CompanyDestroyAPIView(DestroyAPIView):
     serializer_class = CompanySerializer
 
 
+
+class AksiyaListAPIView(ListAPIView):
+    queryset = Aksiya.objects.all()
+    serializer_class = AksiyaSerializer
+
+
+class AksiyaCreateAPIView(CreateAPIView):
+    queryset = Aksiya.objects.all()
+    serializer_class = AksiyaSerializer
+
+
+class AksiyaUpdateAPIView(UpdateAPIView):
+    queryset = Aksiya.objects.all()
+    serializer_class = AksiyaSerializer
+
+
+class AksiyaDestroyAPIView(DestroyAPIView):
+    queryset = Aksiya.objects.all()
+    serializer_class = AksiyaSerializer
+
+
+
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+
+def Aksiya_api_view(request, pk=0):
+    if request.method == 'GET':
+        if pk == 0:
+            return Response(data=AksiyaSerializer(instance=Aksiya.objects.all(), many=True).data, status=200)
+        else:
+            the_Aksiya = get_object_or_404(Aksiya, pk=pk)
+            return Response(data=AksiyaSerializer(instance=the_Aksiya).data, status=200)
+    
+    elif request.method == "POST":
+        sb = AksiyaSerializer(data=request.data)
+        if sb.is_valid():
+            sb.save()
+            return Response({'id': sb.instance.id}, status=201)
+        else:
+            return Response(sb.error_messages, status=406)
+    elif request.method == 'PUT':
+        the_Aksiya = get_object_or_404(Aksiya, pk=pk)
+        sb = AksiyaSerializer(data=request.data, instance=the_Aksiya)
+        if sb.is_valid():
+            sb.save()
+            return Response('Updated', status=200)
+        else:
+            return Response(sb.error_messages, status=406)
+    else:
+        the_Aksiya = get_object_or_404(Aksiya, pk=pk)
+        the_Aksiya.delete()
+        return Response('Deleted', status=200)
 

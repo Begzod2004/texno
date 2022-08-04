@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -14,8 +12,8 @@ SECRET_KEY = 'django-insecure-0*@p!(-rt$&tpwy0c@bnc^i0)an-efx$_emcc6wqtn&**y&)#b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -30,15 +28,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oauth2_provider',
     'technique',
+    'dashboard',
     'rest_framework',
-    'apiv0',
     'rest_framework_simplejwt',
+    'apiv0',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.facebook',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -79,15 +80,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Techniquee',
+        'NAME':  'Techniquee',
         'USER': 'name',
         'PASSWORD': '1',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
 
 
+
+
+listen_addresses = '*'
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -119,6 +123,7 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -137,16 +142,16 @@ STATICFILES_DIRS = [
 ]
 
 
-
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+   
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+  
 }
 
-
-SITE_ID = 1
+SITE_ID = 3
 
 
 
@@ -169,5 +174,4 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
 SOCIALACCOUNT_ADAPTER = 'apiv0.adapter.MySocialAccountAdapter'

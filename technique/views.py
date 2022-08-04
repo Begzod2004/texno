@@ -1,13 +1,12 @@
 from unicodedata import *
 from django.http import HttpResponse
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView,DetailView
 from django.shortcuts import  redirect, render
 from .models import *
 from .forms import *
 from django.db.models import *
 from django.contrib.auth.models import Group
 from django.contrib.auth import *
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -32,6 +31,13 @@ def index(request):
     context = {'Technique': b1, 'Aksiya': b2}
 
     return render(request, "main.html", context=context)
+def product(request):
+    b1 = Technique.objects.all()
+    b2 = Aksiya.objects.all()
+
+    context = {'Technique': b1, 'Aksiya': b2}
+
+    return render(request, "product.html", context=context)
 
 
 def add_Technique(request):
@@ -460,7 +466,9 @@ class TechniqueListView(ListView):
 
 
 
-
+class TechniqueDetailView(DetailView):
+    template_name = 'product.html'
+    model = Technique
 
 class TechniqueCreateView(CreateView):
     queryset = Technique.objects.all()
@@ -482,8 +490,9 @@ class TechniqueDeleteView(DeleteView):
     queryset = Technique.objects.all()
     template_name = 'Technique-delete.html'
     fields = "__all__"
+    
+success_url = '/Technique'
 
-    success_url = '/Technique'
 
 def about(request):
     return render(request, "about.html")

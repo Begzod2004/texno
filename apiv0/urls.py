@@ -38,10 +38,16 @@ urlpatterns = [
     path('Company-api-view/<int:pk>/', Company_api_view),
 
     
+    path('Aksiya-api-view/', AksiyaListAPIView.as_view()),
+    path('Aksiya-api-view/create', AksiyaCreateAPIView.as_view()),
+    path('Aksiya-api-view/update/<int:pk>', AksiyaUpdateAPIView.as_view()),
+    path('Aksiya-api-view/delete/<int:pk>', AksiyaDestroyAPIView.as_view()),
+    
+    path('Aksiya-api-view/<int:pk>/', Aksiya_api_view),
+
+    
 
     path('auth/', include('rest_framework.urls')),
 
 ]
-
-
 

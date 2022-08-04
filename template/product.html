@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block banner %}
+
+<img class="card-img-top" src="{{ object.img.url }}" alt="{{ object.name }}">
+
+<h1 class="card-title">{{ object.name }}</h1>
+<p class="card-text">{{ object.country}}</p>
+
+{% endblock %}

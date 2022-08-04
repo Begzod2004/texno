@@ -10,6 +10,7 @@ urlpatterns = [
     path('',index, name='index'),
     path('index', index, name='index'),
     path('brand', brand, name='brand'),
+    path('product/', product, name='product'),
     path('contact', contact, name='contact'),
     path('events', events, name='events'),
     path('services', services, name='services'),
@@ -51,6 +52,7 @@ urlpatterns = [
     path('Country/change/<int:pk>',  CountryUpdateView.as_view(), name='Country-change'),
     path('Country/delete/<int:pk>',
           CountryDeleteView.as_view(), name='Country-delete') ,
+
           
 
     path('Aksiya_Code/',  Aksiya_CodeListView.as_view(), name='Aksiya_Code'),
@@ -76,6 +78,7 @@ urlpatterns = [
     
 
     path('Technique/', TechniqueListView.as_view(), name='Technique'),
+    path('Technique/<int:pk>', TechniqueDetailView.as_view(), name='TechniqueDetailView'),
     path('Technique/add', TechniqueCreateView.as_view(), name='Technique-add'),
     path('Technique/change/<int:pk>',
          TechniqueUpdateView.as_view(), name='Technique-change'),

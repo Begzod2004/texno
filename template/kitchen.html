@@ -290,18 +290,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<figure>
 									<div class="snipcart-item block" >
 										<div class="snipcart-thumb">
-											<a href="single.html"><img title=" " alt=" " src="images/1.png" /></a>		
-											<p>fortune sunflower oil</p>
+											<a href="single.html"><img title=" " alt=" " src="images/1.png" /></a>
+											{% for item in Technique %}		
+											<p>{{item.name}}</p>
 											<h4>$7.99 <span>$10.00</span></h4>
+											
 										</div>
 										<div class="snipcart-details top_brand_home_details">
 											<form action="#" method="post">
 												<fieldset>
 													<input type="hidden" name="cmd" value="_cart" />
 													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="fortune sunflower oil" />
-													<input type="hidden" name="amount" value="7.99" />
+													<input type="hidden" name="business" value={{item.name}} />
+													<input type="hidden" name="item_name" value={{item.name}} />
+													<input type="hidden" name="amount" value= {{item.price}}/>
 													<input type="hidden" name="discount_amount" value="1.00" />
 													<input type="hidden" name="currency_code" value="USD" />
 													<input type="hidden" name="return" value=" " />
@@ -316,6 +318,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
+				{% endfor %
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
@@ -560,7 +563,7 @@ $(document).ready(function(){
 				total += items[i].get('quantity');
 			}
 
-			if (total < 3) {
+			if (total < 1) {
 				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
 				evt.preventDefault();
 			}

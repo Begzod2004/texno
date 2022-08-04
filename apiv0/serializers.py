@@ -1,4 +1,3 @@
-
 from rest_framework import serializers
 from technique.models import *
 
@@ -31,3 +30,10 @@ class CompanySerializer(serializers.ModelSerializer):
         model = Company
         fields = '__all__'
         
+
+
+class AksiyaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Aksiya
+        fields = '__all__'
